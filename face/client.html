@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="public/js/vendor/jquery-2.1.4.js"></script>
+    <script src="public/js/affectiva.js"></script>
+    <script src="https://download.affectiva.com/js/3.2/affdex.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="public/js/connectRTC.js"></script>
+    <style>
+        html,
+        body {
+            background-color: white;
+        }
+
+        video {
+            width: 320px;
+            height: 240px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body onload='init()'>
+    <div id="facevideo-node"></div>
+    <div id="logs"></div>
+    <div id="results"></div>
+    <div>
+        <button id="restart" style="display: none" type="button" onclick="restart()">Restart</button>
+    </div>
+    <div id="filters" style="display: none">
+        <fieldset id="country">
+        </fieldset>
+
+        <fieldset>
+            <legend>Choose your interest gender</legend>
+            <input type="checkbox" name="gender" id="Male" checked onchange="genderChanged('Male')">
+            <label>Male</label>
+            <input type="checkbox" name="gender" id="Female" checked onchange="genderChanged('Female')">
+            <label>Female</label>
+        </fieldset>
+
+    </div>
+    <!-- 
+        the <video> and <audio> tags are all added and removed dynamically
+        in 'onAddStream', 'setup_local_media', and 'removePeer'/'disconnect'
+        -->
+</body>
+
+</html>
